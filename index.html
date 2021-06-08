@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="With every one breath, it gets better.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <meta name="apple-mobile-web-app-title" content="MA:MB">
+  <link rel="apple-touch-icon" href="icons/apple-icon.png">
+  <link rel="apple-touch-icon-precomposed" href="icons/apple-icon.png"/>
+  <link rel="apple-touch-icon" sizes="192x192" href="icons/apple-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+
+  <title>MA:MB</title>
+
+</head>
+<body>
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js?v=899682515');
+      });
+    }
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
+
+  <style>
+    body,
+    html {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #FCFCFC;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .MuiCircularProgress-root {
+      display: inline-block
+    }
+
+    .MuiCircularProgress-static {
+      transition: transform .3s cubic-bezier(.4, 0, .2, 1) 0s
+    }
+
+    .MuiCircularProgress-indeterminate {
+      animation: MuiCircularProgress-keyframes-circular-rotate 1.4s linear infinite
+    }
+
+    .MuiCircularProgress-determinate {
+      transition: transform .3s cubic-bezier(.4, 0, .2, 1) 0s
+    }
+
+    .MuiCircularProgress-colorPrimary {
+      color: #3f51b5
+    }
+
+    .MuiCircularProgress-colorSecondary {
+      color: #a167ff
+    }
+
+    .MuiCircularProgress-svg {
+      display: block;
+      animation: loading_animation 1.4s infinite
+    }
+
+    .MuiCircularProgress-circle {
+      stroke: currentColor
+    }
+
+    .MuiCircularProgress-circleStatic {
+      transition: stroke-dashoffset .3s cubic-bezier(.4, 0, .2, 1) 0s
+    }
+
+    .MuiCircularProgress-circleIndeterminate {
+      animation: MuiCircularProgress-keyframes-circular-dash 1.4s ease-in-out infinite;
+      stroke-dasharray: 80px, 200px;
+      stroke-dashoffset: 0
+    }
+
+    .MuiCircularProgress-circleDeterminate {
+      transition: stroke-dashoffset .3s cubic-bezier(.4, 0, .2, 1) 0s
+    }
+
+    @keyframes MuiCircularProgress-keyframes-circular-rotate {
+      0% {
+        transform-origin: 50% 50%
+      }
+
+      100% {
+        transform: rotate(360deg)
+      }
+    }
+
+    @keyframes MuiCircularProgress-keyframes-circular-dash {
+      0% {
+        stroke-dasharray: 1px, 200px;
+        stroke-dashoffset: 0
+      }
+
+      50% {
+        stroke-dasharray: 100px, 200px;
+        stroke-dashoffset: -15px
+      }
+
+      100% {
+        stroke-dasharray: 100px, 200px;
+        stroke-dashoffset: -125px
+      }
+    }
+
+    .MuiCircularProgress-circleDisableShrink {
+      animation: none
+    }
+
+    @keyframes loading_animation {
+      0% {
+        color: #4285f4
+      }
+
+      25% {
+        color: #a167ff
+      }
+
+      50% {
+        color: #4285f4
+      }
+
+      75% {
+        color: #a167ff
+      }
+    }
+  </style>
+
+
+  <div id="loading-indicator" style="width: 40px; height: 40px;" role="progressbar"
+    class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate">
+    <svg viewBox="22 22 44 44" class="MuiCircularProgress-svg">
+      <circle cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6"
+        class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate">
+      </circle>
+    </svg>
+  </div>
+
+</body>
+</html>
